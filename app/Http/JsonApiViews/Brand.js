@@ -2,7 +2,7 @@ const JsonApiView = require('adonis-jsonapi/src/JsonApiView');
 
 class Brand extends JsonApiView {
   get attributes() {
-    return ['name', 'country', 'collection'];
+    return ['name', 'country'];
   }
 
   cars() {

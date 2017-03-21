@@ -1,18 +1,20 @@
 'use strict';
 
 const Car = use('App/Model/Car');
-const attributes = ['name', 'year', 'hp', 'collection', 'price'];
+const attributes = ['name', 'year', 'hp', 'price'];
 
 class CarController {
 
   * index(request, response) {
-    const cars = yield Car.with('brand').fetch();
+    const collection = request.param('collection');
+    const cars = yield Car.with('brand').where({ collection }).fetch();
 
     response.jsonApi('Car', cars);
   }
 
   * store(request, response) {
     const input = request.jsonApi.getAttributesSnakeCase(attributes);
+    input.collection = request.param('collection');
     const foreignKeys = {
       brand_id: request.jsonApi.getRelationId('brand'),
     };
@@ -24,13 +26,15 @@ class CarController {
 
   * show(request, response) {
     const id = request.param('id');
-    const car = yield Car.with('brand').where({ id }).firstOrFail();
+    const collection = request.param('collection');
+    const car = yield Car.with('brand').where({ id, collection }).firstOrFail();
 
     response.jsonApi('Car', car);
   }
 
   * update(request, response) {
     const id = request.param('id');
+    const collection = request.param('collection');
     request.jsonApi.assertId(id);
 
     const input = request.jsonApi.getAttributesSnakeCase(attributes);
@@ -38,7 +42,7 @@ class CarController {
       brand_id: request.jsonApi.getRelationId('brand'),
     };
 
-    const car = yield Car.with('brand').where({ id }).firstOrFail();
+    const car = yield Car.with('brand').where({ id, collection }).firstOrFail();
     car.fill(Object.assign({}, input, foreignKeys));
     yield car.save();
 
@@ -47,8 +51,9 @@ class CarController {
 
   * destroy(request, response) {
     const id = request.param('id');
+    const collection = request.param('collection');
 
-    const car = yield Car.query().where({ id }).firstOrFail();
+    const car = yield Car.query().where({ id, collection }).firstOrFail();
     yield car.delete();
 
     response.status(204).send();

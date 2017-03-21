@@ -24,5 +24,4 @@ Route.group('collection', () => {
     .except(['create', 'edit']);
   Route.resource('/brands', 'BrandController')
     .except(['create', 'edit']);
-})
-// .prefix('/:collection');
+}).prefix('/:collection');
