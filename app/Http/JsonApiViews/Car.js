@@ -8,7 +8,7 @@ class Car extends JsonApiView {
   brand() {
     return this.belongsTo('App/Http/JsonApiViews/Brand', {
       included: true,
-      excludeRelation: 'cars'
+      excludeRelation: 'cars',
     });
   }
 

@@ -10,7 +10,7 @@ class BrandSchema extends Schema {
       table.string('name');
       table.string('country');
       table.string('collection');
-      
+
       table.timestamps();
     });
   }

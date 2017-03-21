@@ -8,7 +8,7 @@ class Brand extends JsonApiView {
   cars() {
     return this.hasMany('App/Http/JsonApiViews/Car', {
       included: true,
-      excludeRelation: 'brand'
+      excludeRelation: 'brand',
     });
   }
 

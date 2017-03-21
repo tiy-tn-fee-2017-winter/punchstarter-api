@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ const providers = [
   'adonis-websocket/providers/WsProvider',
 
   'adonis-jsonapi/providers/JsonApiProvider',
-]
+];
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ const aceProviders = [
   'adonis-commands/providers/ReplProvider',
 
   'adonis-generators/providers/GeneratorsProvider',
-]
+];
 
 /*
 |--------------------------------------------------------------------------
@@ -80,8 +80,8 @@ const aliases = {
   Route: 'Adonis/Src/Route',
   Schema: 'Adonis/Src/Schema',
   View: 'Adonis/Src/View',
-  Ws: 'Adonis/Addons/Ws'
-}
+  Ws: 'Adonis/Addons/Ws',
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -119,6 +119,6 @@ const commands = [
   'AdonisGenerators/Generate:Controller',
   'AdonisGenerators/Generate:JsonApiView',
   'AdonisGenerators/Generate:JsonApiResource',
-]
+];
 
-module.exports = { providers, aceProviders, aliases, commands }
+module.exports = { providers, aceProviders, aliases, commands };
