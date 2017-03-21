@@ -29,4 +29,10 @@ Route.group('collection', () => {
     .except(['create', 'edit']);
   Route.resource('/project', 'ProjectController')
     .except(['create', 'edit']);
+
+
+  Route.resource('/basic/pledge-levels', 'BasicPledgeLevelController')
+    .except(['create', 'edit']);
+  Route.resource('/basic/projects', 'BasicProjectController')
+    .except(['create', 'edit']);
 }).prefix('/:collection');

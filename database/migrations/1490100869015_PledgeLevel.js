@@ -8,7 +8,7 @@ class PledgeLevelSchema extends Schema {
     this.create('pledge_levels', (table) => {
       table.increments();
       table.string('name');
-      table.integer('collection');
+      table.string('collection');
       table.integer('price');
       table.text('description');
       table.string('delivery_date');
