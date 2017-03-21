@@ -20,8 +20,13 @@ const Route = use('Route');
 Route.on('/').render('welcome');
 
 Route.group('collection', () => {
-  Route.resource('/cars', 'CarController')
+  Route.resource('/pledge-level', 'PledgeLevelController')
     .except(['create', 'edit']);
-  Route.resource('/brands', 'BrandController')
+  Route.resource('/pledge-levels', 'PledgeLevelController')
+    .except(['create', 'edit']);
+
+  Route.resource('/projects', 'ProjectController')
+    .except(['create', 'edit']);
+  Route.resource('/project', 'ProjectController')
     .except(['create', 'edit']);
 }).prefix('/:collection');
