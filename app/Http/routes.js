@@ -17,4 +17,12 @@
 
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.on('/').render('welcome');
+
+Route.group('collection', () => {
+  Route.resource('/cars', 'CarController')
+    .except(['create', 'edit']);
+  Route.resource('/brands', 'BrandController')
+    .except(['create', 'edit']);
+})
+// .prefix('/:collection');
