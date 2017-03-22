@@ -3,7 +3,7 @@
 const Project = use('App/Model/Project');
 const attributes = ['name', 'collection', 'country', 'description', 'campaign', 'video_url', 'start_time', 'end_time'];
 
-class BAasicProjectController {
+class BasicProjectController {
 
   * index(request, response) {
     const collection = request.param('collection');
@@ -51,4 +51,4 @@ class BAasicProjectController {
 
 }
 
-module.exports = BAasicProjectController;
+module.exports = BasicProjectController;
