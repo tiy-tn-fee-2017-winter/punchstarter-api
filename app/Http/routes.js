@@ -19,9 +19,10 @@ const Route = use('Route');
 
 Route.on('/').render('welcome');
 
-Route.resource('/contacts', 'ContactController').except(['create', 'edit']);
 
 Route.group('collection', () => {
+  Route.resource('/contacts', 'ContactController').except(['create', 'edit']);
+
   Route.resource('/pledge-level', 'PledgeLevelController')
     .except(['create', 'edit']);
   Route.resource('/pledge-levels', 'PledgeLevelController')
