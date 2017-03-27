@@ -21,7 +21,7 @@ Route.on('/').render('welcome');
 
 
 Route.group('collection', () => {
-  Route.resource('/users', 'UserController');
+  Route.resource('/users', 'UserController').only(['store']);
 
   Route.resource('/contacts', 'ContactController').except(['create', 'edit']);
 
