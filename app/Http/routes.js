@@ -21,6 +21,8 @@ Route.on('/').render('welcome');
 
 
 Route.group('collection', () => {
+  Route.resource('/users', 'UserController');
+
   Route.resource('/contacts', 'ContactController').except(['create', 'edit']);
 
   Route.resource('/pledge-level', 'PledgeLevelController')
